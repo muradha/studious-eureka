@@ -1,7 +1,7 @@
 {
-  "name": "belajar-prisma",
+  "name": "belajar-restful-api",
   "version": "1.0.0",
-  "description": "Belajar Prisma",
+  "description": "Belajar RESTFUL API",
   "main": "./src/index.js",
   "type": "module",
   "scripts": {
