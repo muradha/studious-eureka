@@ -2,10 +2,10 @@
   "name": "belajar-restful-api",
   "version": "1.0.0",
   "description": "Belajar RESTFUL API",
-  "main": "./src/index.js",
+  "main": "./src/main.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon src/main.js",
     "test": "jest"
   },
   "jest": {
