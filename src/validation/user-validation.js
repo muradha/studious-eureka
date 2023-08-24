@@ -6,9 +6,11 @@ const registerUserValidation = Joi.object({
   name: Joi.string().max(100).required(),
 });
 
+const getUserValidation = Joi.string().max(100).required();
+
 const logUserValidation = Joi.object({
   username: Joi.string().max(100).required(),
   password: Joi.string().max(100).required()
 });
 
-export { registerUserValidation, logUserValidation };
+export { registerUserValidation, logUserValidation, getUserValidation };
