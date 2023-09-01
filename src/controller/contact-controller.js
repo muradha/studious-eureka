@@ -41,7 +41,22 @@ const update = async(req,res,next) =>{
         res.status(200).json({
             data: result
         })
-        
+
+    } catch (error) {
+        next(error)
+    }
+}
+
+const remove = async(req, res, next) => {
+    try {
+        const user =req.user;
+        const contactId = req.params.contactId;
+
+        await contactService.remove(user, contactId);
+
+        res.status(200).json({
+            data: "OK"
+        });
     } catch (error) {
         next(error)
     }
@@ -50,5 +65,6 @@ const update = async(req,res,next) =>{
 export default {
     create,
     get,
-    update
+    update,
+    remove
 }
