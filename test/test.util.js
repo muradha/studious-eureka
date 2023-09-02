@@ -36,9 +36,9 @@ const removeAllTestContacts = async () => {
     })
 }
 
-const createTestContact = async()=>{
+const createTestContact = async () => {
     await prismaClient.contact.create({
-        data:{
+        data: {
             username: "test",
             first_name: "test",
             last_name: "test",
@@ -50,16 +50,16 @@ const createTestContact = async()=>{
 
 const getTestContact = async () => {
     return prismaClient.contact.findFirst({
-        where:{
+        where: {
             username: "test"
         }
     })
 }
 
-const createManyTestContacts = async() => {
+const createManyTestContacts = async () => {
     for (let index = 0; index < 15; index++) {
         await prismaClient.contact.create({
-            data:{
+            data: {
                 username: "test",
                 first_name: `test ${index}`,
                 last_name: `test ${index}`,
@@ -70,6 +70,16 @@ const createManyTestContacts = async() => {
     }
 }
 
+const removeAllTestAdresses = async () => {
+    await prismaClient.address.deleteMany({
+        where: {
+            contact: {
+                username: "test"
+            }
+        }
+    })
+}
+
 export {
     removeTestUser,
     createTestUser,
@@ -77,5 +87,6 @@ export {
     removeAllTestContacts,
     createTestContact,
     getTestContact,
-    createManyTestContacts
+    createManyTestContacts,
+    removeAllTestAdresses
 }
