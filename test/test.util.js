@@ -56,11 +56,26 @@ const getTestContact = async () => {
     })
 }
 
+const createManyTestContacts = async() => {
+    for (let index = 0; index < 15; index++) {
+        await prismaClient.contact.create({
+            data:{
+                username: "test",
+                first_name: `test ${index}`,
+                last_name: `test ${index}`,
+                email: `test${index}@gmail.com`,
+                phone: `080900000${index}`
+            }
+        })
+    }
+}
+
 export {
     removeTestUser,
     createTestUser,
     getTestUser,
     removeAllTestContacts,
     createTestContact,
-    getTestContact
+    getTestContact,
+    createManyTestContacts
 }
